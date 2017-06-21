@@ -9,4 +9,4 @@ App by tutorial https://reacttraining.com/online/react-fundamentals
 * Webpack
 * Firebase automatic deploying
 
-[link](https://github-battle-react-fe888.firebaseapp.com/ "Live demo")
+[Live demo](https://github-battle-react-fe888.firebaseapp.com/)
