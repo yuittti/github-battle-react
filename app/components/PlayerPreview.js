@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 const PlayerPreview = (props) => {
 	return (
-		<div>
-			<div className="column">
+		<div className="column">
+			<div>
 				<img 
 					src={props.avatar} 
 					alt={'Avatar for ' + props.username} 

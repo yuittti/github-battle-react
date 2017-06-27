@@ -1,6 +1,13 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var precss = require('precss');
+var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
+
+var sMap = '';
+if (process.env.NODE_ENV !== 'production') {
+	sMap = '?sourceMap';
+}
 
 var config = {
 	entry: './app/index.js',
@@ -9,11 +16,12 @@ var config = {
 		filename: 'index_bundle.js',
 		publicPath: '/'
 	},
+	devtool: 'source-map',
 	module: {
 		rules: [
 			{ test: /\.(js)$/, use: 'babel-loader' },
-			{ test: /\.css$/, use: [ 'style-loader', 'css-loader' ]}
-		]
+			{ test: /\.scss$/, use: ['style-loader', 'css-loader'+sMap, 'postcss-loader'+sMap, 'sass-loader'+sMap]}
+		]		
 	},
 	devServer: {
 		historyApiFallback: true
@@ -30,8 +38,8 @@ if (process.env.NODE_ENV === 'production') {
 			'process.env': {
 				'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 			}
-		}),
-		new webpack.optimize.UglifyJsPlugin()
+		})
+		// new webpack.optimize.UglifyJsPlugin()
 	);
 }
 
