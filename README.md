@@ -1,6 +1,7 @@
 # Github battle
 
 App by tutorial https://reacttraining.com/online/react-fundamentals
+(rewritten with ES6)
 
 * React
 * React Router

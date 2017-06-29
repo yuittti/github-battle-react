@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const PlayerPreview = (props) => {
 	return (
-		<div className="column">
+		<div className="player">
 			<div>
 				<img 
 					src={props.avatar} 

@@ -87,7 +87,8 @@ class Battle extends React.Component {
 		this.setState(() => {
 			let newState = {};
 			newState[id + 'Name'] = username;
-			newState[id + 'Img'] = 'https://github.com/' + username + '.png?size=200';
+			newState[id + 'Img'] = `https://github.com/${username}.png?size=200`;
+			console.log(newState[id + 'Img']);
 			return newState;
 		});
 	}
@@ -119,16 +120,19 @@ class Battle extends React.Component {
 						/>}
 
 					{playerOneImg !== null &&
-						<PlayerPreview 
-							avatar={playerOneImg}
-							username={playerOneName}>
+						<div className="column">
+							<PlayerPreview 
+								avatar={playerOneImg}
+								username={playerOneName}>
 
-							<button
-								className='reset'
-								onClick={this.handleReset.bind(null, 'playerOne')}>
-									Reset
-							</button>
-						</PlayerPreview>
+								<button
+									className='reset'
+									onClick={this.handleReset.bind(null, 'playerOne')}>
+										Reset
+								</button>
+							</PlayerPreview>
+						</div>
+						
 					}
 
 					{!playerTwoName && 
@@ -139,28 +143,33 @@ class Battle extends React.Component {
 						/>}
 
 					{playerTwoImg !== null &&
-						<PlayerPreview 
-							avatar={playerTwoImg}
-							username={playerTwoName}>
+						<div className="column">
+							<PlayerPreview 
+								avatar={playerTwoImg}
+								username={playerTwoName}>
 
-							<button
-								className='reset'
-								onClick={this.handleReset.bind(null, 'playerTwo')}>
-									Reset
-							</button>
-						</PlayerPreview>
+								<button
+									className='reset'
+									onClick={this.handleReset.bind(null, 'playerTwo')}>
+										Reset
+								</button>
+							</PlayerPreview>
+						</div>
 					}
 				</div>
 
 				{playerOneImg && playerTwoImg && 
-					<Link
-						className='button'
-						to={{
-							pathname: match.url + '/results',
-							search: '?playerOneName=' + playerOneName + '&playerTwoName=' + playerTwoName
-						}}>
-							Battle
-					</Link>}
+					<div className="btn-holder">
+						<Link
+							className='button'
+							to={{
+								pathname: match.url + '/results',
+								search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`
+							}}>
+								Battle
+						</Link>
+					</div>
+					}
 			</div>
 		)
 	}

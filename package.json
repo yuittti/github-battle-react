@@ -20,7 +20,7 @@
     "last 10 versions"
   ],
   "author": "",
-  "l]cense": "ISC",
+  "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
     "prop-types": "^15.5.10",

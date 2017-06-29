@@ -8,14 +8,19 @@ import Loading from './Loading';
 
 const Profile = (props) => {
 	const info = props.info;
-	
+	console.log(info);
 	return (
 		<PlayerPreview 
 			avatar={info.avatar_url}
 			username={info.login}>
 
+			
+
 			<ul className="space-list-items">
 				{info.name && <li>{info.name}</li>}
+				{!!info.followers && <li>Followers: {info.followers}</li>}
+				{!!info.following && <li>Following: {info.following}</li>}
+				{!!info.public_repos && <li>Repos: {info.public_repos}</li>}
 			</ul>
 		</PlayerPreview>
 	)
@@ -28,7 +33,7 @@ Profile.propTypes = {
 
 const Player = (props) => {
 	return (
-		<div>
+		<div className="column">
 			<h1 className="header">{props.label}</h1>
 			<h3 style={{textAlign: 'center'}}>Score: {props.score}</h3>
 			<Profile info={props.profile} />
