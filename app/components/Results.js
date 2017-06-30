@@ -8,13 +8,10 @@ import Loading from './Loading';
 
 const Profile = (props) => {
 	const info = props.info;
-	console.log(info);
 	return (
 		<PlayerPreview 
 			avatar={info.avatar_url}
 			username={info.login}>
-
-			
 
 			<ul className="space-list-items">
 				{info.name && <li>{info.name}</li>}
@@ -29,7 +26,6 @@ const Profile = (props) => {
 Profile.propTypes = {
 	info: PropTypes.object.isRequired
 }
-
 
 const Player = (props) => {
 	return (
@@ -83,11 +79,10 @@ class Results extends React.Component {
 					loading: false
 				}
 			})
-			console.log(results);
 		});
 	}
-	render() {
 
+	render() {
 		let error = this.state.error;
 		let winner = this.state.winner;
 		let loser = this.state.loser;
@@ -109,7 +104,6 @@ class Results extends React.Component {
 		}
 
 		return (
-
 			<div className="row">
 				<Player 
 					label='Winner'

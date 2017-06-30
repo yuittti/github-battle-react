@@ -19,7 +19,6 @@ class Loading extends React.Component {
 
 	componentDidMount() {
 		var stopper = this.props.text + '...';
-		console.log(stopper);
 		this.interval = window.setInterval( () => {
 			if (this.state.text === stopper) {
 				this.setState(() => {
@@ -43,7 +42,6 @@ class Loading extends React.Component {
 	}
 
 	render() {
-		console.log('123');
 		return (
 			<p style={styles.content}>
 				{this.state.text}

@@ -24,7 +24,6 @@ const calculateScore = (profile, repos) => {
 }
 
 const handleError = (error) => {
-	console.warn(error);
 	return null;
 }
 
